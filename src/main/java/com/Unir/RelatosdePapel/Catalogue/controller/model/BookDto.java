@@ -8,8 +8,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import lombok.*;
-
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -28,10 +29,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE )
-public class GetBookResponseDto implements Serializable {
-
+public class BookDto implements Serializable {
     private final static long serialVersionUID = 1L;
 
     @JsonProperty("id")
@@ -41,10 +39,7 @@ public class GetBookResponseDto implements Serializable {
     private String title;
     
     @JsonProperty("author")
-    private String author;
-
-    @JsonProperty("publicationDate")
-    private LocalDate publicationDate;
+    private String author;    
 
     @JsonProperty("isbn")
     private String isbn;    
@@ -59,8 +54,5 @@ public class GetBookResponseDto implements Serializable {
     private BigDecimal unitPrice;
 
     @JsonProperty("stock")
-    private Integer stock;
-
-    @JsonProperty("rating")
-    private Double rating;
+    private Integer stock;    
 }

@@ -1,6 +1,8 @@
 package com.Unir.RelatosdePapel.Catalogue.controller.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,7 +17,12 @@ import lombok.*;
     "title",
     "author",
     "publicationDate",
-    "isbn"    
+    "isbn",
+    "category",
+    "visibility",
+    "unitPrice",
+    "stock",
+    "rating"
 })
 
 @Getter
@@ -28,7 +35,7 @@ public class WriteBookRequestDto implements Serializable {
     private final static long serialVersionUID = 1L;
 
     @JsonProperty("id")
-    private Integer id;
+    private Long id;
 
     @JsonProperty("title")
     private String title;
@@ -37,9 +44,24 @@ public class WriteBookRequestDto implements Serializable {
     private String author;
 
     @JsonProperty("publicationDate")
-    private String publicationDate;
+    private LocalDate publicationDate;
 
     @JsonProperty("isbn")
     private String isbn;    
+
+    @JsonProperty("category")
+    private String category;
+
+    @JsonProperty("visibility")
+    private Boolean visibility;
+
+    @JsonProperty("unitPrice")
+    private BigDecimal unitPrice;
+
+    @JsonProperty("stock")
+    private Integer stock;
+
+    @JsonProperty("rating")
+    private Double rating;
 }
 

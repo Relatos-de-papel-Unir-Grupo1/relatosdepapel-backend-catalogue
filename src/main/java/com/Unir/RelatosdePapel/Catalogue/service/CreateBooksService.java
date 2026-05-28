@@ -24,7 +24,11 @@ public class CreateBooksService {
                 .author(request.getAuthor())
                 .publicationDate(request.getPublicationDate())
                 .isbn(request.getIsbn())
-                .build();
+                .category(request.getCategory())
+                .visibility(request.getVisibility())
+                .unitPrice(request.getUnitPrice())
+                .stock(request.getStock())                
+                .build();        
 
         var savedBook = bookJpaRepository.save(book);
 

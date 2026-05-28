@@ -1,5 +1,11 @@
 package com.Unir.RelatosdePapel.Catalogue.repository.model;
 
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.LocalDate;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,7 +29,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
     
     @Column(name = "title", nullable = false, length = 255)
     private String title;
@@ -32,7 +38,7 @@ public class Book {
     private String author;
 
     @Column(name = "publicationDate", nullable = false)
-    private String publicationDate;
+    private LocalDate publicationDate;
 
     @Column(name = "isbn", nullable = false, length = 20)
     private String isbn;
@@ -43,4 +49,16 @@ public class Book {
     @Column(name = "visibility", nullable = false)
     private Boolean visibility;
 
+    @Column(name = "unitPrice", nullable = false, precision = 10, scale = 2)
+    private BigDecimal unitPrice;
+    
+    @Column(name = "stock", nullable = false)
+    private Integer stock;
+
+    @Column(name = "rating", nullable = true)
+    private Double rating;
+
+    @CreationTimestamp
+    @Column(name = "createTime", nullable = false)
+    private Instant createTime;
 }

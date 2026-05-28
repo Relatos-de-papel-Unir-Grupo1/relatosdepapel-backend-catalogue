@@ -12,7 +12,7 @@ public class BookNotFoundException extends RuntimeException {
         super(message, cause);
     }
 
-    public BookNotFoundException(Integer id) {
+    public BookNotFoundException(Long id) {
         super("Book not found with id: " + id);
     }
 
