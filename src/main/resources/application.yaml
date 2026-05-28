@@ -3,7 +3,7 @@ spring:
         name: Catalogue
 
     datasource:
-        url: ${DB_URL:jdbc:mysql://localhost:3306/catalogue}
+        url: ${DB_URL:jdbc:mysql://localhost:3306/catalogue_db}
         driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.Driver}
         username: ${DB_USER:root}
         password: ${DB_PASSWORD:mysql}

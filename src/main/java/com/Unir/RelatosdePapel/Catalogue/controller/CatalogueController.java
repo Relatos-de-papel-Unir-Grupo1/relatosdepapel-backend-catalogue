@@ -1,20 +1,19 @@
 package com.Unir.RelatosdePapel.Catalogue.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.Unir.RelatosdePapel.Catalogue.controller.model.GetBookResponseDto;
+import com.Unir.RelatosdePapel.Catalogue.controller.model.GetBooksResponseDto;
 import com.Unir.RelatosdePapel.Catalogue.controller.model.WriteBookRequestDto;
 import com.Unir.RelatosdePapel.Catalogue.service.CreateBooksService;
+import com.Unir.RelatosdePapel.Catalogue.service.DeleteBooksService;
 import com.Unir.RelatosdePapel.Catalogue.service.GetBooksService;
+import com.Unir.RelatosdePapel.Catalogue.service.ModifyBookService;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
+
 
 
 
@@ -25,15 +24,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class CatalogueController {
     private final GetBooksService getBooksService;
     private final CreateBooksService createBookService;
+    private final ModifyBookService modifyBookService;
+    private final DeleteBooksService deleteBookService;
 
+    @GetMapping("books")
+    public ResponseEntity<GetBooksResponseDto> getBooks() {
+        return ResponseEntity.ok(getBooksService.getBooks());
+    }
+    
     @GetMapping("books/{bookId}")
     public ResponseEntity<GetBookResponseDto> getBook(@PathVariable Long bookId) {
-        return ResponseEntity.ok(getBooksService.getBook(bookId.intValue()));
+        return ResponseEntity.ok(getBooksService.getBook(bookId));
     }
 
     @PostMapping("books")
     public ResponseEntity<GetBookResponseDto> createBook(@RequestBody WriteBookRequestDto request) {
         return ResponseEntity.ok(createBookService.createBook(request));
     }
-        
+
+    @PutMapping("books/{bookId}")
+    public ResponseEntity<GetBookResponseDto> modifyBook(@PathVariable Long bookId, @RequestBody WriteBookRequestDto request) {
+        return ResponseEntity.ok(modifyBookService.modifyBook(bookId, request));
+    }
+
+    @PatchMapping("books/{bookId}")
+    public ResponseEntity<GetBookResponseDto> modifyBook(@PathVariable Long bookId, @RequestBody String jsonPart) {
+        return ResponseEntity.ok(modifyBookService.modifyBook(bookId, jsonPart));
+    }
+
+    @DeleteMapping("books/{bookId}")
+    public ResponseEntity<Void> deleteBook(@PathVariable Long bookId) {
+        deleteBookService.deleteBook(bookId);
+        return ResponseEntity.noContent().build();
+    }                
 }
