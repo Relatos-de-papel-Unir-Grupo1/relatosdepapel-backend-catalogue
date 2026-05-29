@@ -3,7 +3,6 @@ package com.Unir.RelatosdePapel.Catalogue.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.Unir.RelatosdePapel.Catalogue.config.ObjectMapperConfig;
 import com.Unir.RelatosdePapel.Catalogue.controller.model.GetBookResponseDto;
 import com.Unir.RelatosdePapel.Catalogue.controller.model.WriteBookRequestDto;
 import com.Unir.RelatosdePapel.Catalogue.exception.BookNotFoundException;

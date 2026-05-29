@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 import com.Unir.RelatosdePapel.Catalogue.controller.model.BookDto;
 import com.Unir.RelatosdePapel.Catalogue.controller.model.GetBookResponseDto;
 import com.Unir.RelatosdePapel.Catalogue.controller.model.WriteBookRequestDto;
-import com.Unir.RelatosdePapel.Catalogue.exception.BookNotFoundException;
-import com.Unir.RelatosdePapel.Catalogue.repository.BookJpaRepository;
 import com.Unir.RelatosdePapel.Catalogue.repository.model.Book;
 
 import lombok.RequiredArgsConstructor;
@@ -19,8 +17,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BookMapper {
 
-    private final BookJpaRepository bookJpaRepository;
-    
     public GetBookResponseDto toGetBookResponseDto(Book book) {
         return GetBookResponseDto.builder()
                 .id(book.getId())

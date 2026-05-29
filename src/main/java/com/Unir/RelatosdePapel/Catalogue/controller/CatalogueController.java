@@ -28,8 +28,14 @@ public class CatalogueController {
     private final DeleteBooksService deleteBookService;
 
     @GetMapping("books")
-    public ResponseEntity<GetBooksResponseDto> getBooks() {
-        return ResponseEntity.ok(getBooksService.getBooks());
+    public ResponseEntity<GetBooksResponseDto> getBooks(@RequestParam(required = false) String title,
+            @RequestParam(required = false) String author,
+            @RequestParam(required = false) String isbn,
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) Double price,
+            @RequestParam(required = false, defaultValue = "5") Integer pageSize,
+            @RequestParam(required = false, defaultValue = "0") Integer page) {
+        return ResponseEntity.ok(getBooksService.getBooks(title, author, isbn, category, price, pageSize, page));
     }
     
     @GetMapping("books/{bookId}")
