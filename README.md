@@ -71,7 +71,15 @@ Puedes ejecutar la aplicación utilizando el siguiente comando de Maven:
 mvn spring-boot:run
 ```
 
+
 La aplicación estará disponible en `http://localhost:8080`.
+
+### Ejecución Docker
+
+se puede utilizar **Docker** para arrancar el sitio
+ ```docker
+    Docker compose up --build
+ ```
 
 ## 🌱 Carga de Datos de Prueba (Seeding)
 
