@@ -88,7 +88,7 @@ El sistema es idempotente: si la base de datos ya contiene libros, no se agregar
 La API proporciona los siguientes endpoints para gestionar los libros:
 
 #### `GET /api/v1/books`
-- **Descripción**: Obtiene una lista de todos los libros disponibles en el catálogo.
+- **Descripción**: Obtiene una lista de todos los libros disponibles en el catálogo, se le pueden incluir filtros como title, author o isbn
 - **Respuesta Exitosa (200 OK)**:
   ```json
   [
