@@ -31,3 +31,9 @@ eureka:
     instance:
         prefer-ip-address: true
         hostname: relatosdepapel-catalogue
+
+# Data Seeding Configuration
+app:
+    seed:
+        enabled: true
+        books-count: 50 # Número de libros a generar
